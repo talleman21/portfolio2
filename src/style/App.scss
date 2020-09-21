@@ -1,3 +1,31 @@
+$primary:rgb(148, 191, 199);
+$secondary:#94A6C7;
+$tertiary:#94C7B6;
+$dark:rgb(50,50,50);
+
+@use '../../node_modules/bootstrap/scss/bootstrap.scss';
+
 body{
-  background-color:grey
+  // background-color: darken($primary,10);
+}
+.intro{
+  background-color: $primary;
+  padding-left:110px;
+  margin-left:-100px;
+  padding-right:100px;
+  border-radius: 0 100px 100px 0;
+}
+.profile-img{
+  border:5px solid $dark;
+  z-index: 10;
+}
+
+.project-section{
+  background-color: $tertiary;
+}
+.project{
+  max-width:1200px;
+  border-radius:20px;
+  background-color: white;
+  box-shadow: 0 0 50px 1px black;
 }
