@@ -10155,4 +10155,16 @@ button.close {
   box-shadow: 0 0 50px 1px black;
 }
 
+.github-link {
+  background-color: #94bfc7;
+  border-radius: 10px 0 0 10px;
+  height: 40px;
+}
+
+.live-link {
+  background-color: #94bfc7;
+  border-radius: 0 10px 10px 0;
+  height: 40px;
+}
+
 /*# sourceMappingURL=App.css.map */

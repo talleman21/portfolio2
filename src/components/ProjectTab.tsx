@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 interface Props {
   projects: Project[];
@@ -16,38 +16,59 @@ type Project = {
 };
 
 const ProjectTab = (props: Props) => {
-  // const {title,type,description,technologies,github,image} = props.project
+  const {projects} = props
+
+  const [currentProject,setCurrentProject] = useState(0)
 
   return (
     <div className="project border mx-auto">
       <div className="row">
-        <div className="col-4 border-right">
-          {props.projects.map((project) => (
-            <div className="border-bottom p-3 text-right">{project.title}</div>
+        <div className="col-3 border-right">
+          {projects.map((project,index) => (
+            <div  onClick={()=>setCurrentProject(index)} className="border-bottom p-3 text-right">{project.title}</div>
           ))}
         </div>
         <div className="col">
           <div className="row">
-            <div className="col">
-              <div className=''>Type: {props.projects[0].type}</div>
+            <div className="col-6 d-flex flex-column align-items-between">
               <div>
-                <div>
+                <div className='border-bottom'>
+                  Type
+                </div>
+                <div className='mb-3'>
+                  {projects[currentProject].type}
+                </div>
+              </div>
+              <div>
+                <div className='border-bottom'>
                   Description: 
                 </div>
-                <div>
-                  {props.projects[0].description}</div>
+                <div className='mb-3'>
+                  {projects[currentProject].description}
                 </div>
-                <div>GitHub: {props.projects[0].github}</div>
-                <div>Live: {props.projects[0].live}</div>
-
+              </div>
+              <div className='row px-3'>
+                <a
+                  href={projects[currentProject].github}
+                  className='github-link col-6 text-center border-right'
+                >
+                  <i className="fa fa-github m-1" style={{fontSize:'2rem'}}></i>
+                </a>
+                <a
+                  href={projects[currentProject].github}
+                  className='live-link col-6 text-center border-left'
+                >
+                  <i className="fa fa-play m-1" style={{fontSize:'2rem'}}></i>
+                </a>
+              </div>
             </div>
-            <div className="col">
+            <div className="col-6">
               <div className="d-flex justify-content-center">
                 <img src="format.png" alt='monitors showing apps' />
               </div>
-              <div className="d-flex justify-content-center">
-                {props.projects[0].technologies.map((tech) => (
-                  <img style={{ height: "40px", padding: "5px" }} src={`tech-images/${tech}.png`} />
+              <div className="d-flex flex-wrap justify-content-center">
+                {projects[currentProject].technologies.map((tech) => (
+                  <img style={{ height: "40px", padding: "5px" }} src={`tech-images/${tech}.png`} alt={tech + ' logo'} />
                 ))}
               </div>
             </div>

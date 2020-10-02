@@ -8,7 +8,7 @@ const Jumbotron = (props: Props) => {
   return (
     <div className={`jumbotron jumbotron-fluid ${props.className}`}>
       <div className="container">
-          <div className='m-sm-4 d-flex flex-wrap justify-content-center' >
+          <div className='m-sm-4 d-flex  justify-content-center' >
             <img className='rounded-circle profile-img'  src='talleman_profile.png' />
             <div className='text-dark intro pt-4'>
               <h3 className='text-center'>
