@@ -10131,17 +10131,40 @@ button.close {
     display: inline-flex !important;
   }
 }
+.selected-tab {
+  background-color: #94bfc7;
+}
+
+.primary-bg {
+  background-color: #94bfc7;
+}
+
 .intro {
   background-color: #94bfc7;
   padding-left: 110px;
   margin-left: -100px;
   padding-right: 100px;
-  border-radius: 0 100px 100px 0;
+  border-radius: 0 125px 125px 0;
 }
 
 .profile-img {
-  border: 5px solid #323232;
+  border: 7px solid white;
+  width: 250px;
   z-index: 10;
+}
+
+.link-button {
+  border: 1px solid #94bfc7;
+  color: #94bfc7;
+  font-weight: 600;
+  margin: 0px 30px;
+  padding: 10px;
+  border-radius: 20px;
+  width: 150px;
+}
+.link-button:hover {
+  background-color: #94bfc7;
+  color: white;
 }
 
 .project-section {
@@ -10152,19 +10175,27 @@ button.close {
   max-width: 1200px;
   border-radius: 20px;
   background-color: white;
-  box-shadow: 0 0 50px 1px black;
+  box-shadow: 5px 5px 7px -5px #8a8a8a;
 }
 
 .github-link {
   background-color: #94bfc7;
-  border-radius: 10px 0 0 10px;
+  border-radius: 15px 0 0 15px;
   height: 40px;
 }
 
 .live-link {
   background-color: #94bfc7;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 15px 15px 0;
   height: 40px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
 }
 
 /*# sourceMappingURL=App.css.map */

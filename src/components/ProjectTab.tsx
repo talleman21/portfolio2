@@ -21,55 +21,60 @@ const ProjectTab = (props: Props) => {
   const [currentProject,setCurrentProject] = useState(0)
 
   return (
-    <div className="project border mx-auto">
+    <div className="project mx-auto">
       <div className="row">
-        <div className="col-3 border-right">
+        <div className="col-3 border-right ">
           {projects.map((project,index) => (
-            <div  onClick={()=>setCurrentProject(index)} className="border-bottom p-3 text-right">{project.title}</div>
+            <div  
+              onClick={()=>setCurrentProject(index)} 
+              className={`border-bottom border-right p-3 m-2 text-center cursor-pointer ${currentProject === index ? 'selected-tab text-white':''}`}
+              style={{borderRadius:'15px'}}
+            >
+              {project.title}
+            </div>
           ))}
         </div>
         <div className="col">
           <div className="row">
             <div className="col-6 d-flex flex-column align-items-between">
               <div>
-                <div className='border-bottom'>
-                  Type
-                </div>
-                <div className='mb-3'>
+                <div className='text-muted text-center mt-1' style={{fontSize:'1.5rem',fontWeight:500}}>
                   {projects[currentProject].type}
                 </div>
-              </div>
-              <div>
-                <div className='border-bottom'>
-                  Description: 
+                <div className='border m-2 p-3 text-muted' style={{fontSize:'1.5rem',fontWeight:500,borderRadius:'15px',minHeight:'200px'}}>
+                  <div className="border-bottom">
+                    Description:
+                  </div>
+                  <div style={{fontSize:'1rem'}}>
+                    {projects[currentProject].description}
+                  </div>
                 </div>
-                <div className='mb-3'>
-                  {projects[currentProject].description}
-                </div>
               </div>
-              <div className='row px-3'>
+              <div className='row m-2'>
                 <a
                   href={projects[currentProject].github}
                   className='github-link col-6 text-center border-right'
                 >
-                  <i className="fa fa-github m-1" style={{fontSize:'2rem'}}></i>
+                  <i className="fa fa-github m-1" style={{fontSize:'2rem',textDecoration:'none',color:'white'}}></i>
                 </a>
                 <a
-                  href={projects[currentProject].github}
+                  href={projects[currentProject].live}
                   className='live-link col-6 text-center border-left'
                 >
-                  <i className="fa fa-play m-1" style={{fontSize:'2rem'}}></i>
+                  <i className="fa fa-play m-1" style={{fontSize:'2rem',textDecoration:'none',color:'white'}}></i>
                 </a>
               </div>
             </div>
-            <div className="col-6">
-              <div className="d-flex justify-content-center">
-                <img src="format.png" alt='monitors showing apps' />
-              </div>
-              <div className="d-flex flex-wrap justify-content-center">
-                {projects[currentProject].technologies.map((tech) => (
-                  <img style={{ height: "40px", padding: "5px" }} src={`tech-images/${tech}.png`} alt={tech + ' logo'} />
-                ))}
+            <div className="col-6 d-flex align-items-center justify-content-center">
+              <div>
+                <div className="d-flex justify-content-center">
+                  <img src={projects[currentProject].image || "format.png"} alt='monitors showing apps' />
+                </div>
+                <div className="d-flex flex-wrap justify-content-center">
+                  {projects[currentProject].technologies.map((tech) => (
+                    <img style={{ height: "40px", padding: "5px" }} src={`tech-images/${tech}.png`} alt={tech + ' logo'} />
+                  ))}
+                </div>
               </div>
             </div>
 

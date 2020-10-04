@@ -9,9 +9,9 @@ import ProjectTab from './components/ProjectTab';
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <Jumbotron />
-      <div className="project-section p-3">
+      <div className="project-section p-4 pb-5">
         <h2 className='text-center mb-3 text-light'>Projects</h2>
         <ProjectTab projects={projectInfo} />
       </div>
